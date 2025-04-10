@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>蓝韵数字博物馆</title>
+    <title>粉黛数字博物馆</title>
     <style>
         :root {
-            --primary-blue: #1A237E;
-            --accent-blue: #2196F3;
-            --light-blue: #E3F2FD;
+            --primary-pink: #FF4081;
+            --accent-pink: #FF79B0;
+            --light-pink: #FFF3F8;
+            --text-dark: #4A4A4A;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
-            background: var(--light-blue);
+            background: var(--light-pink);
+            color: var(--text-dark);
         }
 
         /* 导航样式 */
-        .nav-container {
-            background: var(--primary-blue);
+        .navbar {
+            background: var(--primary-pink);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
@@ -33,7 +35,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -47,24 +49,28 @@
             font-weight: bold;
         }
 
-        .nav-links {
+        .nav-buttons {
             display: flex;
             gap: 2rem;
         }
 
-        .nav-links a {
+        .nav-button {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .nav-links a:hover {
-            color: var(--accent-blue);
+        .nav-button:hover {
+            background: var(--accent-pink);
+            transform: translateY(-2px);
         }
 
         /* 主内容区域 */
         .main-content {
-            margin-top: 80px;
+            margin-top: 100px;
             padding: 2rem;
             max-width: 1200px;
             margin-left: auto;
@@ -76,9 +82,9 @@
             position: relative;
             width: 100%;
             padding-top: 56.25%; /* 16:9 宽高比 */
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             background: white;
         }
 
@@ -91,64 +97,67 @@
             border: none;
         }
 
-        /* 加载动画 */
-        .loader {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 4px solid var(--light-blue);
-            border-top: 4px solid var(--accent-blue);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
             }
-            
-            .model-container {
-                padding-top: 75%; /* 改为 4:3 比例适应移动端 */
+
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .nav-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                margin-top: 140px;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
         }
 
         /* 页脚 */
         footer {
-            background: var(--primary-blue);
+            background: var(--primary-pink);
             color: white;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+            padding: 1.5rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
-    <div class="nav-container">
-        <nav>
-            <div class="logo">蓝韵博物馆</div>
-            <div class="nav-links">
-                <a href="#home">首页</a>
-                <a href="#exhibits">展览</a>
-                <a href="#about">关于</a>
-                <a href="#contact">联系</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">粉黛博物馆</div>
+            <div class="nav-buttons">
+                <a href="#home" class="nav-button">首页</a>
+                <a href="#exhibits" class="nav-button">展品</a>
+                <a href="#news" class="nav-button">展讯</a>
+                <a href="#contact" class="nav-button">联系我们</a>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
     <div class="main-content">
         <div class="model-container">
-            <div class="loader"></div>
             <div class="sketchfab-embed-wrapper">
-                <iframe title="tripo_convert_7f2e1ce6-7b76-491e-bb53-8aab1e1920" 
+                <iframe title="Bumpy Pumpkin" 
                         frameborder="0" 
                         allowfullscreen 
                         mozallowfullscreen="true" 
@@ -158,22 +167,22 @@
                         execution-while-out-of-viewport 
                         execution-while-not-rendered 
                         web-share 
-                        src="https://sketchfab.com/models/32b488f2fba9437a96a1eb0327f6dede/embed">
+                        src="https://sketchfab.com/models/1a9e0961235b481aacba364e95899a1f/embed">
                 </iframe>
                 <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
-                    <a href="https://sketchfab.com/3d-models/tripo-convert-7f2e1ce6-7b76-491e-bb53-8aab1e1920-32b488f2fba9437a96a1eb0327f6dede?utm_medium=embed&utm_campaign=share-popup&utm_content=32b488f2fba9437a96a1eb0327f6dede" 
+                    <a href="https://sketchfab.com/3d-models/bumpy-pumpkin-1a9e0961235b481aacba364e95899a1f?utm_medium=embed&utm_campaign=share-popup&utm_content=1a9e0961235b481aacba364e95899a1f" 
                        target="_blank" 
                        rel="nofollow" 
                        style="font-weight: bold; color: #1CAAD9;">
-                        tripo_convert_7f2e1ce6-7b76-491e-bb53-8aab1e1920
+                        Bumpy Pumpkin
                     </a> by 
-                    <a href="https://sketchfab.com/twinmotion-ba3cd6?utm_medium=embed&utm_campaign=share-popup&utm_content=32b488f2fba9437a96a1eb0327f6dede" 
+                    <a href="https://sketchfab.com/terrielsimmons?utm_medium=embed&utm_campaign=share-popup&utm_content=1a9e0961235b481aacba364e95899a1f" 
                        target="_blank" 
                        rel="nofollow" 
                        style="font-weight: bold; color: #1CAAD9;">
-                        twinmotion-ba3cd6
+                        Terrie Simmons-Ehrhardt
                     </a> on 
-                    <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=32b488f2fba9437a96a1eb0327f6dede" 
+                    <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=1a9e0961235b481aacba364e95899a1f" 
                        target="_blank" 
                        rel="nofollow" 
                        style="font-weight: bold; color: #1CAAD9;">
@@ -185,32 +194,33 @@
     </div>
 
     <footer>
-        <p>© 2023 蓝韵数字博物馆 保留所有权利</p>
+        <p>© 2023 粉黛数字博物馆 | 探索数字艺术之美</p>
     </footer>
 
     <script>
-        // 模型加载完成后隐藏加载动画
-        document.querySelector('iframe').addEventListener('load', function() {
-            document.querySelector('.loader').style.display = 'none';
-        });
-
         // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
 
-        // 响应式导航切换
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                document.querySelector('.nav-links').style.display = 'flex';
-            } else {
-                document.querySelector('.nav-links').style.display = 'none';
-            }
+        // 响应式导航按钮激活状态
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navButtons = document.querySelectorAll('.nav-button');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    navButtons.forEach(button => button.classList.remove('active'));
+                    navButtons[index].classList.add('active');
+                }
+            });
         });
     </script>
 </body>
